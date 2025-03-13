@@ -1,2 +1,3 @@
 # Digital-image-processing
- 6/5000 Digital image processing course info
+* ![Result display](homework/An introduction to image processing/main.ipynb)
+* ![Project detail](homework/An introduction to image processing/src)
