@@ -14,7 +14,7 @@ class Module5(Module2):
     get_local_min()
         get local minimum of vec through method self-defined.
     get_local_min_count()
-        np.int32: get local minimum counts ergodic params.
+        get local minimum counts ergodic params.
     judgment_local_min_count() n
         sum up get_image_info() and get_local_min_count().
     module5_section1_part1()
@@ -65,6 +65,7 @@ class Module5(Module2):
             self.case4_rgb,
             self.case5_rgb,
         ]
+        # taeget
         self.images_rgb_sorted_list = self.images_rgb_list
 
     @staticmethod
