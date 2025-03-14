@@ -5,19 +5,32 @@ from scipy.signal import find_peaks
 
 class Module5(Module2):
     """
-    This class implements the module 5: sorting and batch processing.
+    This class implements the module 5.
 
     methods:
-    get_image_info(img_bgr: np.ndarray, ) -> np.ndarray, np.ndarray, np.ndarray: get vec_smoothed, local_min_indices and local_min_values of img_bgr.
-    get_local_min(vec: np.ndarray, target_count: np.int32) -> np.int32: get local minimum of vec through method self-defined.
-    get_local_min_count(vec: np.ndarray) -> np.int32: get local minimum counts ergodic params.
-    judgment_local_min_count(image_bgr: np.ndarray) -> np.int32: sum up get_image_info(img_bgr) and get_local_min_count(img_bgr)
-    module5_section1_part1(self, ): find local minimum of case1 and case2.
-    module5_section1_part32(self, ): judgment of is_receipt in images list.
+    ----------
+    get_image_info()
+        get vec_smoothed, local_min_indices and local_min_values of img_bgr.
+    get_local_min()
+        get local minimum of vec through method self-defined.
+    get_local_min_count()
+        np.int32: get local minimum counts ergodic params.
+    judgment_local_min_count() n
+        sum up get_image_info() and get_local_min_count().
+    module5_section1_part1()
+        find local minimum of case1 and case2.
+    module5_section1_part32()
+        judgment of is_receipt in images list.
     """
     def __init__(self):
         super().__init__()
         # path
+        """
+        Parameters
+        ----------
+        images_rgb_list : list
+        images_rgb_sorted_list : list
+        """
         self.case3_png_path = os.path.join(
             self.raw_graph_folder_path,
             "Screenshot_20250313_105013.png"
@@ -55,7 +68,7 @@ class Module5(Module2):
         self.images_rgb_sorted_list = self.images_rgb_list
 
     @staticmethod
-    def get_image_info(img_bgr):  # please adjust param in this function.
+    def get_image_info(img_bgr: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         img_gra = cv2.cvtColor(  # binary
             img_bgr,
             cv2.COLOR_BGR2GRAY,
@@ -98,7 +111,7 @@ class Module5(Module2):
         return imag_closed, opened_tool, opened_tool_row_sum_vec
 
     @staticmethod
-    def get_local_min(vec, target_count, ):
+    def get_local_min(vec: np.ndarray, target_count: np.int32, ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         vec_smoothed = gaussian_filter1d(vec, sigma=3)
         local_min_indices, local_min_values = None, None
         for i in range(10, 100):
@@ -109,7 +122,7 @@ class Module5(Module2):
         return vec_smoothed, local_min_indices, local_min_values
 
     @staticmethod
-    def get_local_min_count(vec, ):
+    def get_local_min_count(vec: np.ndarray, ) -> np.int32:
         local_min_count = 0
         for i in range(29900, 30000):
             for j in range(40, 50):
@@ -121,7 +134,7 @@ class Module5(Module2):
                 local_min_count += np.count_nonzero(min_indices)
         return local_min_count
 
-    def judgment_local_min_count(self, img_bgr):
+    def judgment_local_min_count(self, img_bgr: np.ndarray) -> np.int32:
         _, _, opened_tool_row_sum_vec = self.get_image_info(img_bgr)
         receipt_possibility = self.get_local_min_count(opened_tool_row_sum_vec)
         return receipt_possibility

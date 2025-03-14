@@ -8,14 +8,31 @@ class Module2:
     """
     This class implements the module 2: process images in matlab.
 
-    methods:
-    section1_part1: display and save the case images.
-    section2_part2: display red tier and find its max, min value and shape.
-    section2_part3: transform of bgr to gray scale and return the shape of gray scale.
-    section3_part1: contrast adjustment and display via histogram.
-    section3_part2: 交互式Python没有，不写了。
+    Methods
+    ----------
+    module2_section1_part1()
+        display and save the case images.
+    module2_section2_part2()
+        display red tier and find its max, min value and shape.
+    module2_section2_part3()
+        transform of bgr to gray scale and return the shape of gray scale.
+    module2_section3_part1()
+        contrast adjustment and display via histogram.
+    module2_section3_part2()
+        交互式Python没有，不写了。
     """
     def __init__(self, ):
+        """
+        Parameters
+        ----------
+        module{}_png_path : str
+        module{}_section{}_part{}_graph_path : str
+        case{}_bgr : np.ndarray
+        case{}_rgb : np.ndarray
+        case{}_gray : np.ndarray
+        case{}_contrast_gray : np.ndarray
+            contrast adjustment of case{}_gray.
+        """
         # path
         self.raw_graph_folder_path = "./graph/raw"  # raw
         self.case1_png_path = os.path.join(

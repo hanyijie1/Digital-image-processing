@@ -4,13 +4,21 @@ class Module3(Module2):
     """
     This class implements the module 3: split images.
 
-    method:
-    section1_part1: Binary, the threshold is 200.
-    section1_part2: auto-binary, local auto-binary and foreground reversal.
-    section2_part1: sum to column(row sum) to case 1 and case 2.
+    methods:
+    module3_section1_part1()
+        Binary, the threshold is 200.
+    module3_section1_part2()
+        auto-binary, local auto-binary and foreground reversal.
+    module3_section2_part1()
+        sum to column(row sum) to case 1 and case 2.
     """
     def __init__(self):
         super().__init__()
+        """
+        Parameters
+        ----------
+        case{}_binary_gray : np.ndarray
+        """
         # path
         self.module3_section1_part1_graph_path = os.path.join(
             self.processed_graph_path,

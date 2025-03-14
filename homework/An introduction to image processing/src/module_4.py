@@ -6,11 +6,24 @@ class Module4(Module3):
     This class implements the module 4: Pretreatment and post-treatment methods.
 
     methods:
-    section1_part2: filter to binary case 1. there is no param such as replicate in python.
-    section2_part3: base on filtered binary case 1 and binary case 1, cut the background.
-    section2_part4: pre-process and row sum compare between case_2_close_typeface and case2_opened_mask.
+    module4_section1_part2()
+        filter to binary case 1. there is no param such as replicate in python.
+    module4_section2_part3()
+        base on filtered binary case 1 and binary case 1, cut the background.
+    module4_section2_part4()
+        pre-process and row sum compare between case_2_close_typeface and case2_opened_mask.
     """
     def __init__(self, ):
+        """
+        Parameters
+        ----------
+        case{}_re_binary_gray : np.ndarray
+            binary, filter, binary again to case{}_gray
+        case{}_rm_noise_gray : np.ndarray
+            rm the noise to case{}_re_binary_gray
+        case{}_opened_mask : np.ndarray
+            opened operation of case{}_rm_noise_gray
+        """
         super().__init__()
         # path
         self.module_4_section1_part2_path = os.path.join(
